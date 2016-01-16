@@ -23,16 +23,12 @@ class SearchController extends BaseController
 
     public function search($param = null)
     {
-        $validator = Validator::make(["input" => $param], ["input" => "NoDigits|ValidHashTag"]);
-        // dd(preg_match('/^[\d]+/', $param));
-        if ($validator->fails()) {
-            dd("failed!");
-        } else {
-            dd("success!");
-        }
+        $validator = Validator::make(["input" => $param], 
+            ["input" => "required|NoDigits|ValidHashTag"]);
 
-        if (empty($param) || ! $this->inputIsValid($param)) {
-            return response('', 500);
+        if ($validator->fails()) {
+            // return a 400 Bad Request
+            return response('', 400);
         }
 
         $result = $this->instagramSearch($param);
