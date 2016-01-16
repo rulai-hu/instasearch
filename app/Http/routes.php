@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
+    if (null == env('INSTAGRAM_SECRET'))
+        return "Missing Instagram API token in .env config! (INSTAGRAM_SECRET=YOUR_API_TOKEN)";
     return view('index');
 });
 
