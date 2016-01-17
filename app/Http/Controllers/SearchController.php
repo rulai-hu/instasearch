@@ -10,11 +10,11 @@ class SearchController extends BaseController
 {
     public function __construct()
     {
-        Validator::extend('NoDigits', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('no_digits', function($attribute, $value, $parameters, $validator) {
             return 1 !== preg_match('/^[\d]+$/', $value);
         });
 
-        Validator::extend('ValidHashTag', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('valid_hash_tag', function($attribute, $value, $parameters, $validator) {
             $foundSpecChars = (1 === preg_match('/[^\w\d_]+|\s+/', $value));
             $foundStartingDigits = (1 === preg_match('/^[\d]+/', $value));
             return ! $foundSpecChars && ! $foundStartingDigits;
@@ -24,21 +24,21 @@ class SearchController extends BaseController
     public function search($param = null)
     {
         $validator = Validator::make(["input" => $param], 
-            ["input" => "required|NoDigits|ValidHashTag"]);
+            ["input" => "required|no_digits|valid_hash_tag"],
+            [
+                'required' => 'The search field can\'t be empty',
+                'no_digits' => 'Hashtags can\'t be all numbers, and they can\'t start with one',
+                'valid_hash_tag' => 'No spaces or special characters allowed (except the underscore)'
+            ]);
 
         if ($validator->fails()) {
             // return a 400 Bad Request
-            return response('', 400);
+            return response($validator->errors(), 400);
         }
 
         $result = $this->instagramSearch($param);
 
         return response()->json([$result]);
-    }
-
-    private function inputIsValid($input)
-    {
-        return 1 !== preg_match('/[^\w\d_]+|\s+/', $input);
     }
 
     private function instagramSearch($param)

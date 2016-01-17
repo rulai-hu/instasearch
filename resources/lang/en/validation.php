@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'no_digits'             => 'Hashtags can\'t be all numbers, and they can\'t start with one',
+    'valid_hash_tag'         => 'No spaces or special characters allowed (except the underscore)',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',
