@@ -15,11 +15,11 @@
     <div class="banner">
       <div class="container">
         <div class="row">
-          <div class="offset-by-three six columns text-center title">
-            <h2>InstaSearch</h2>
+          <div class="offset-by-three six columns text-center">
+            <h2 class="title">InstaSearch</h2>
           </div>
         </div>
-        <form action="#">
+        <form action="/#">
           <div class="row">
             <div class="offset-by-three six columns search-input">
               <input class="u-full-width" type="text" id="searchInput" placeholder="Search Instagram...">
@@ -36,7 +36,13 @@
     </div>
     <div class="results">
       <div class="container"></div>
-        <div id="imagesContainer">
+        <div class="errors text-center"></div>
+        <div id="imagesContainer" class="text-center">
+          <div id="loadingSpinner">
+            <img src="{{ asset('img/loading.gif') }}">
+            <p><strong>Loading Data</strong></p>
+          </div>
+          <p class="info text-center">No images loaded.</p>
         </div>
       </div>
     </div>
