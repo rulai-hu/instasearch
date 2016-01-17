@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/skeleton.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/instasearch.css') }}">
   </head>
+
   <body>
     <div class="banner">
       <div class="container">
@@ -34,6 +35,7 @@
         </form>
       </div>
     </div>
+    
     <div class="results">
       <div class="container"></div>
         <div class="errors text-center"></div>
