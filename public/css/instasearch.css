@@ -1,3 +1,8 @@
+body {
+    background-color: #0D0D0D;
+    overflow-y: scroll;
+}
+
 #searchButton {
     max-width: 130px;
     color: rgb(230, 230, 230);
@@ -29,6 +34,15 @@
     box-shadow:         0px 0px 1px rgba(50, 50, 50, 0.75);
 }
 
+#loadingSpinner img {
+    margin-top: 36px;
+    height: 50px;
+    width: auto;
+}
+
+#loadingSpinner p {
+    color: #e3e3e3;
+}
 
 .search-input, .search-button, .title {
     margin-top: 5%;
@@ -36,9 +50,25 @@
 
 .img-element {
     margin-right: 5px;
-    margin-bottom: 5px;
     width: 32.6%;
     height: auto;
+}
+
+.errors {
+    padding: 5px;
+    z-index: 100;
+    color: #e3e3e3;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .img-element {
+        opacity: 0.8;
+    }
+
+    .img-element:hover {
+        opacity: 1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -52,11 +82,16 @@
   }
 }
 
-h2 {
+h2.title {
     font-weight: 100;
     font-family: 'Lato';
     padding-top: 50px;
     color: white;
+}
+
+.info {
+    font-weight: 100;
+    color: #d9d9d9;
 }
 
 .text-center {
@@ -64,7 +99,7 @@ h2 {
 }
 
 .banner {
-    padding-bottom: 25%;
+    padding-bottom: 13%;
     background: url(../img/bg.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -74,7 +109,7 @@ h2 {
 }
 
 .results {
-    padding: 10px 0 0 10px;
-    background-color: black;
+    padding: 10px 0 0 5px;
+    background-color: inherit;
     background-size: cover;
 }
