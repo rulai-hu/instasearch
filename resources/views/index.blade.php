@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Instasearch</title>
+    <title>InstaSearch</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,23 +19,25 @@
             <h2>InstaSearch</h2>
           </div>
         </div>
-
-        <div class="row">
-          <div class="offset-by-three six columns search-input">
-            <input class="u-full-width" type="text" id="searchInput" placeholder="input type">
+        <form action="#">
+          <div class="row">
+            <div class="offset-by-three six columns search-input">
+              <input class="u-full-width" type="text" id="searchInput" placeholder="Search Instagram...">
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="offset-by-four four columns search-button text-center">
-            <button class="button-primary u-full-width" id="searchButton">Search</button>
+          <div class="row">
+            <div class="offset-by-four four columns search-button text-center">
+              <button type="submit" class="button-primary u-full-width" id="searchButton" autofocus>Search</button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="results"></div>
+    <div class="results">
+      <div class="container"></div>
+        <div id="imagesContainer">
+        </div>
       </div>
     </div>
 
