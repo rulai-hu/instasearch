@@ -29,9 +29,13 @@ $( document ).ready(function() {
           captionText.substring(0, 50) + '...' :
           captionText;
 
+        var username = '<div class="username">' +
+        '<div style="display: table-cell; vertical-align: middle;">' +
+        '<div><strong>' + element.user.username + '</strong></div></div></div>'
+
         // Here we form the overlay that's hidden until a mousehover occurs
-        var text = '<div class="four columns username"><strong>'
-        + element.user.username + '</strong></div><div class="eight columns caption">'
+        var text = '<div class="four columns" style="overflow:hidden">'
+        + username + '</div><div class="eight columns caption">'
         + captionText + '</div>';
 
         var imageElement = '<div class="img-container"><img class="img-element" src="' 
